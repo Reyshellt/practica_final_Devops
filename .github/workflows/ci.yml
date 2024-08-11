@@ -27,5 +27,8 @@ jobs:
     - name: Clean npm cache
       run: npm cache clean --force
 
+    - name: Fix permissions
+      run: chmod +x $(npm bin)/jest || true
+
     - name: Run tests
       run: npm test
