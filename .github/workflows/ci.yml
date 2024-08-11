@@ -24,6 +24,14 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Clean npm cache
+      run: npm cache clean --force
+
+    - name: List installed binaries
+      run: ls -l $(npm bin)/
+
+    - name: Fix permissions for binaries
+      run: chmod +x $(npm bin)/* || true
+
     - name: Run tests
       run: npx jest
-
