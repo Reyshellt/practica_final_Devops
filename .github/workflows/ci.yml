@@ -24,6 +24,13 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Install Chrome
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y wget
+        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        sudo apt install -y ./google-chrome-stable_current_amd64.deb
+
     - name: Ensure permissions
       run: chmod +x node_modules/.bin/jest
 
