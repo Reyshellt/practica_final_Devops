@@ -24,11 +24,10 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Install Puppeteer browser
-      run: npx puppeteer install
-
-    - name: Ensure permissions
-      run: chmod +x node_modules/.bin/jest
+    - name: Ensure Puppeteer permissions
+      run: |
+        chmod -R 755 node_modules/puppeteer
+        npx puppeteer install
 
     - name: Run tests
       run: npm test
