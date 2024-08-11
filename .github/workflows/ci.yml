@@ -24,26 +24,5 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Clean npm cache
-      run: npm cache clean --force
-
-    - name: Display npm bin directory
-      run: echo $(npm bin)
-
-    - name: List installed binaries
-      run: |
-        NPM_BIN=$(npm bin)
-        echo "Listing binaries in: $NPM_BIN"
-        ls -l "$NPM_BIN" || echo "Failed to list binaries in $NPM_BIN"
-
-    - name: Fix permissions for binaries
-      run: |
-        NPM_BIN=$(npm bin)
-        if [ -d "$NPM_BIN" ]; then
-          chmod +x "$NPM_BIN"/* || echo "Failed to change permissions in $NPM_BIN"
-        else
-          echo "$NPM_BIN is not a directory"
-        fi
-
     - name: Run tests
-      run: npx jest
+      run: npm test
