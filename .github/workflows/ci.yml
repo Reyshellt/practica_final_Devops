@@ -9,20 +9,20 @@ on:
       - main
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout código
-      uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-    - name: Configurar Node.js
-      uses: actions/setup-node@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
       with:
-        node-version: '14'
+        node-version: '18.x'
 
-    - name: Instalar dependencias
+    - name: Install dependencies
       run: npm install
 
-    - name: Ejecutar pruebas
+    - name: Run tests
       run: npm test

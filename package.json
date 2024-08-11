@@ -12,7 +12,7 @@
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.3",
-    "@babel/plugin-transform-runtime": "^7.25.0",
+    "@babel/plugin-transform-runtime": "^7.20.0",  // Versión corregida
     "babel-jest": "^29.7.0",
     "jest": "^29.7.0",
     "puppeteer": "^23.0.2"
