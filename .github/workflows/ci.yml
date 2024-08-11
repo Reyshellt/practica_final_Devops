@@ -22,13 +22,13 @@ jobs:
         node-version: '18.x'
 
     - name: Install dependencies
-      run: npm install
+      run: |
+        npm install
+        npm cache clean --force
 
-    - name: Clean npm cache
-      run: npm cache clean --force
-
-    - name: Fix permissions
-      run: chmod +x $(npm bin)/jest || true
+    - name: Fix permissions for binaries
+      run: chmod +x $(npm bin)/* || true
 
     - name: Run tests
       run: npx jest
+
